@@ -31,7 +31,7 @@ class WordCountTree {
         // TODO: Part A
         println(word)
 
-        if(word.length==1){
+        if(word.length==1){     // special case: word is only one letter, so just check if there's link to root: if there is, increment, if not, establish existence then increment
             var firstLetter: Node? = root.children.get(word[0])
 
             if(firstLetter!=null){
@@ -40,11 +40,19 @@ class WordCountTree {
                 var tempNode: Node = Node(count=1)
                 root.children.put(word[0], tempNode)}
         }
-        else{
+        else{                   // all other non-single letter cases: send to other loop to increment through
             traverseForIncrementCount(word, root)
         }
     }
 
+    /**
+     * Traverses through the tree for non-single letter words.
+     * 1. If the whole word is found, final letter count is incremented.
+     * 2. If word is incremented through and at some point a letter doesn't
+     * follow in map, it is established as a child, and the rest of the word is
+     * recursively looped through to establish the whole word -- then final
+     * letter count is incremented.
+     */
     private fun traverseForIncrementCount(word: String, current: Node?){
         var currentLetterExists: Node? = current!!.children.get(word[0])
         var tempNode: Node? = null
@@ -61,6 +69,7 @@ class WordCountTree {
         else{       // okay, the next letter in the series doesn't exist in the map for this line: we're going to make the rest of the word then, and input it
             tempNode = Node(count=0)
             current!!.children.put(word[0], tempNode)
+            println("reached -- $word + ${word[0]} + ${currentLetterExists?.count}")
 
             if(word.length==1){ // okay, we gave current the child and we've reached the end of the word. so end and create the first number of count at the full word!
                 tempNode.count++}
@@ -82,7 +91,7 @@ class WordCountTree {
      * Implementation must be recursive, not iterative.
      */
     fun getCount(word: String): Int {
-        if(word.length==1){
+        if(word.length==1){ // special case: 
             return if(root!!.children.get(word[0])!=null) root!!.count else 0
         }
         else{
@@ -90,6 +99,11 @@ class WordCountTree {
         }
     }
 
+    /**
+     * Iterates through non-single letter words. 
+     * If ever a letter in the line of the word doesn't exist in the map, return 0.
+     * If whole word exists in map, return count of final letter.
+     */
     private fun traverseForGetCount(word: String, current: Node?): Int{
         var currentLetterExists: Node? = current!!.children.get(word[0])
 
@@ -97,7 +111,7 @@ class WordCountTree {
             if(word.length==1){
                 return currentLetterExists.count}
             else{
-                return traverseForGetCount(word.drop(1), current)} // TK: return??
+                return traverseForGetCount(word.drop(1), currentLetterExists)} // TK: return??
         }
         else{
             return 0

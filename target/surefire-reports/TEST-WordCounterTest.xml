@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="WordCounterTest" time="0.053" tests="4" errors="0" skipped="0" failures="3">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="WordCounterTest" time="0.05" tests="4" errors="0" skipped="0" failures="2">
   <properties>
     <property name="java.specification.version" value="25"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk/25.0.1/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/zevthompson/Documents/Coursework/cs201/Kotlin/wordcounter-project/target/surefire/surefirebooter-20260227174417892_3.jar /Users/zevthompson/Documents/Coursework/cs201/Kotlin/wordcounter-project/target/surefire 2026-02-27T17-44-17_826-jvmRun1 surefire-20260227174417892_1tmp surefire_0-20260227174417892_2tmp"/>
+    <property name="sun.java.command" value="/Users/zevthompson/Documents/Coursework/cs201/Kotlin/wordcounter-project/target/surefire/surefirebooter-20260227180813857_3.jar /Users/zevthompson/Documents/Coursework/cs201/Kotlin/wordcounter-project/target/surefire 2026-02-27T18-08-13_789-jvmRun1 surefire-20260227180813857_1tmp surefire_0-20260227180813857_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/zevthompson/Documents/Coursework/cs201/Kotlin/wordcounter-project/target/test-classes:/Users/zevthompson/Documents/Coursework/cs201/Kotlin/wordcounter-project/target/classes:/Users/zevthompson/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/2.2.0/kotlin-stdlib-2.2.0.jar:/Users/zevthompson/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/Users/zevthompson/.m2/repository/org/jetbrains/kotlin/kotlin-test/2.2.0/kotlin-test-2.2.0.jar:/Users/zevthompson/.m2/repository/org/jetbrains/kotlin/kotlin-test-junit/2.2.0/kotlin-test-junit-2.2.0.jar:/Users/zevthompson/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/zevthompson/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -28,7 +28,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/zevthompson/Documents/Coursework/cs201/Kotlin/wordcounter-project/target/surefire/surefirebooter-20260227174417892_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/zevthompson/Documents/Coursework/cs201/Kotlin/wordcounter-project/target/surefire/surefirebooter-20260227180813857_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="25.0.1"/>
     <property name="user.name" value="zevthompson"/>
@@ -56,8 +56,8 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="java.class.version" value="69.0"/>
   </properties>
-  <testcase name="testText" classname="WordCounterTest" time="0.019">
-    <failure message="expected:&lt;3&gt; but was:&lt;0&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<3> but was:<0>
+  <testcase name="testText" classname="WordCounterTest" time="0.022">
+    <failure message="expected:&lt;{not=1, nobler=1}&gt; but was:&lt;{}&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<{not=1, nobler=1}> but was:<{}>
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.failNotEquals(Assert.java:835)
 	at org.junit.Assert.assertEquals(Assert.java:120)
@@ -66,7 +66,7 @@
 	at kotlin.test.AssertionsKt.assertEquals(Unknown Source)
 	at kotlin.test.AssertionsKt__AssertionsKt.assertEquals$default(Assertions.kt:62)
 	at kotlin.test.AssertionsKt.assertEquals$default(Unknown Source)
-	at WordCounterTest.testText(WordCounterTest.kt:57)
+	at WordCounterTest.testText(WordCounterTest.kt:68)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
@@ -95,89 +95,136 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 ]]></failure>
     <system-out><![CDATA[to
-to
-o
+to +    t.   + null
+reached -- to + t + null
+o +    o.   + null
+reached -- o + o + null
 be
-be
-e
+be +    b.   + null
+reached -- be + b + null
+e +    e.   + null
+reached -- e + e + null
 or
-or
-r
+or +    o.   + null
+reached -- or + o + null
+r +    r.   + null
+reached -- r + r + null
 not
-not
-ot
-t
+not +    n.   + null
+reached -- not + n + null
+ot +    o.   + null
+reached -- ot + o + null
+t +    t.   + null
+reached -- t + t + null
 to
-to
-o
+to +    t.   + 0
+o +    o.   + 1
 be
-be
-e
+be +    b.   + 0
+e +    e.   + 1
 that
-that
-hat
-at
-t
+that +    t.   + 0
+hat +    h.   + null
+reached -- hat + h + null
+at +    a.   + null
+reached -- at + a + null
+t +    t.   + null
+reached -- t + t + null
 is
-is
-s
+is +    i.   + null
+reached -- is + i + null
+s +    s.   + null
+reached -- s + s + null
 the
-the
-he
-e
+the +    t.   + 0
+he +    h.   + 0
+e +    e.   + null
+reached -- e + e + null
 question
-question
-uestion
-estion
-stion
-tion
-ion
-on
-n
+question +    q.   + null
+reached -- question + q + null
+uestion +    u.   + null
+reached -- uestion + u + null
+estion +    e.   + null
+reached -- estion + e + null
+stion +    s.   + null
+reached -- stion + s + null
+tion +    t.   + null
+reached -- tion + t + null
+ion +    i.   + null
+reached -- ion + i + null
+on +    o.   + null
+reached -- on + o + null
+n +    n.   + null
+reached -- n + n + null
 whether
-whether
-hether
-ether
-ther
-her
-er
-r
+whether +    w.   + null
+reached -- whether + w + null
+hether +    h.   + null
+reached -- hether + h + null
+ether +    e.   + null
+reached -- ether + e + null
+ther +    t.   + null
+reached -- ther + t + null
+her +    h.   + null
+reached -- her + h + null
+er +    e.   + null
+reached -- er + e + null
+r +    r.   + null
+reached -- r + r + null
 tis
-tis
-is
-s
+tis +    t.   + 0
+is +    i.   + null
+reached -- is + i + null
+s +    s.   + null
+reached -- s + s + null
 nobler
-nobler
-obler
-bler
-ler
-er
-r
+nobler +    n.   + 0
+obler +    o.   + 0
+bler +    b.   + null
+reached -- bler + b + null
+ler +    l.   + null
+reached -- ler + l + null
+er +    e.   + null
+reached -- er + e + null
+r +    r.   + null
+reached -- r + r + null
 in
-in
-n
+in +    i.   + 0
+n +    n.   + null
+reached -- n + n + null
 the
-the
-he
-e
+the +    t.   + 0
+he +    h.   + 0
+e +    e.   + 1
 mind
-mind
-ind
-nd
-d
+mind +    m.   + null
+reached -- mind + m + null
+ind +    i.   + null
+reached -- ind + i + null
+nd +    n.   + null
+reached -- nd + n + null
+d +    d.   + null
+reached -- d + d + null
 to
-to
-o
+to +    t.   + 0
+o +    o.   + 2
 suffer
-suffer
-uffer
-ffer
-fer
-er
-r
+suffer +    s.   + null
+reached -- suffer + s + null
+uffer +    u.   + null
+reached -- uffer + u + null
+ffer +    f.   + null
+reached -- ffer + f + null
+fer +    f.   + null
+reached -- fer + f + null
+er +    e.   + null
+reached -- er + e + null
+r +    r.   + null
+reached -- r + r + null
 ]]></system-out>
   </testcase>
-  <testcase name="testContainsPositive" classname="WordCounterTest" time="0.0">
+  <testcase name="testContainsPositive" classname="WordCounterTest" time="0.001">
     <failure message="Cheese is cheese, Should return &apos;true&apos; for contains cheese expected:&lt;true&gt; but was:&lt;false&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Cheese is cheese, Should return 'true' for contains cheese expected:<true> but was:<false>
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.failNotEquals(Assert.java:835)
@@ -214,103 +261,89 @@ r
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 ]]></failure>
     <system-out><![CDATA[cheese
-cheese
-heese
-eese
-ese
-se
-e
+cheese +    c.   + null
+reached -- cheese + c + null
+heese +    h.   + null
+reached -- heese + h + null
+eese +    e.   + null
+reached -- eese + e + null
+ese +    e.   + null
+reached -- ese + e + null
+se +    s.   + null
+reached -- se + s + null
+e +    e.   + null
+reached -- e + e + null
 ]]></system-out>
   </testcase>
   <testcase name="testIncrementAndGet" classname="WordCounterTest" time="0.001">
-    <failure message="The count of &apos;book&apos; should be 3 expected:&lt;3&gt; but was:&lt;0&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: The count of 'book' should be 3 expected:<3> but was:<0>
-	at org.junit.Assert.fail(Assert.java:89)
-	at org.junit.Assert.failNotEquals(Assert.java:835)
-	at org.junit.Assert.assertEquals(Assert.java:120)
-	at kotlin.test.junit.JUnitAsserter.assertEquals(JUnitSupport.kt:32)
-	at kotlin.test.AssertionsKt__AssertionsKt.assertEquals(Assertions.kt:63)
-	at kotlin.test.AssertionsKt.assertEquals(Unknown Source)
-	at WordCounterTest.testIncrementAndGet(WordCounterTest.kt:19)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-]]></failure>
     <system-out><![CDATA[bookkeeper
-bookkeeper
-ookkeeper
-okkeeper
-kkeeper
-keeper
-eeper
-eper
-per
-er
-r
+bookkeeper +    b.   + null
+reached -- bookkeeper + b + null
+ookkeeper +    o.   + null
+reached -- ookkeeper + o + null
+okkeeper +    o.   + null
+reached -- okkeeper + o + null
+kkeeper +    k.   + null
+reached -- kkeeper + k + null
+keeper +    k.   + null
+reached -- keeper + k + null
+eeper +    e.   + null
+reached -- eeper + e + null
+eper +    e.   + null
+reached -- eper + e + null
+per +    p.   + null
+reached -- per + p + null
+er +    e.   + null
+reached -- er + e + null
+r +    r.   + null
+reached -- r + r + null
 bookkeep
+bookkeep +    b.   + 0
+ookkeep +    o.   + 0
+okkeep +    o.   + 0
+kkeep +    k.   + 0
+keep +    k.   + 0
+eep +    e.   + 0
+ep +    e.   + 0
+p +    p.   + 0
 bookkeep
-ookkeep
-okkeep
-kkeep
-keep
-eep
-ep
-p
-bookkeep
-bookkeep
-ookkeep
-okkeep
-kkeep
-keep
-eep
-ep
-p
+bookkeep +    b.   + 0
+ookkeep +    o.   + 0
+okkeep +    o.   + 0
+kkeep +    k.   + 0
+keep +    k.   + 0
+eep +    e.   + 0
+ep +    e.   + 0
+p +    p.   + 1
 book
+book +    b.   + 0
+ook +    o.   + 0
+ok +    o.   + 0
+k +    k.   + 0
 book
-ook
-ok
-k
+book +    b.   + 0
+ook +    o.   + 0
+ok +    o.   + 0
+k +    k.   + 1
 book
-book
-ook
-ok
-k
-book
-book
-ook
-ok
-k
+book +    b.   + 0
+ook +    o.   + 0
+ok +    o.   + 0
+k +    k.   + 2
 ]]></system-out>
   </testcase>
   <testcase name="testContainsNegative" classname="WordCounterTest" time="0.0">
     <system-out><![CDATA[chess
-chess
-hess
-ess
-ss
-s
+chess +    c.   + null
+reached -- chess + c + null
+hess +    h.   + null
+reached -- hess + h + null
+ess +    e.   + null
+reached -- ess + e + null
+ss +    s.   + null
+reached -- ss + s + null
+s +    s.   + null
+reached -- s + s + null
 incremented chess
 ]]></system-out>
   </testcase>
