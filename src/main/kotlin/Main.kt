@@ -3,7 +3,7 @@ fun main() {
     val myTree = WordCountTree()
 
     // Test "document"
-    val documentString = "book book book book"
+    val documentString = "book book book"
     val words = documentString.split(" ")
     println(words)
 
@@ -19,10 +19,12 @@ fun main() {
         println(" count: ${myTree.getCount(word)}")
     }
 
+
+    println(myTree.contains("no"))
+    println(myTree.contains("nobler"))
+
     // Check to see what autocompletions are possible for provided prefixes
-    println(myTree.getAutocompletionMap("n"))
-    println(myTree.getAutocompletionMap("t"))
-    println(myTree.getAutocompletionMap("ti"))
+    println(myTree.getAutocompletionMap("b"))
 
     println("Done!")
 }

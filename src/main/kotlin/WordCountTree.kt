@@ -57,8 +57,6 @@ class WordCountTree {
         var currentLetterExists: Node? = current!!.children.get(word[0])
         var tempNode: Node? = null
 
-        println("$word +    ${word[0]}.   + ${currentLetterExists?.count}")
-
         if(currentLetterExists!=null){  // okay, the next letter in the series exists! so if we're at the last, we've finished, if not, we keep pushing
             if(word.length==1){
                 currentLetterExists.count++} // we've finished! increment count and end
@@ -69,20 +67,11 @@ class WordCountTree {
         else{       // okay, the next letter in the series doesn't exist in the map for this line: we're going to make the rest of the word then, and input it
             tempNode = Node(count=0)
             current!!.children.put(word[0], tempNode)
-            println("reached -- $word + ${word[0]} + ${currentLetterExists?.count}")
 
             if(word.length==1){ // okay, we gave current the child and we've reached the end of the word. so end and create the first number of count at the full word!
                 tempNode.count++}
             else{   // okay, we haven't reached the end, but now we have the next letter in. re-traverse, and if all goes to plan: we will end up back in this loop, and keep recurring and inputting new letters until we reach the end
                 traverseForIncrementCount(word.drop(1), current!!.children.get(word[0]))}
-
-            // better, iterative way
-            // for(char in word){
-            //     tempNode = Node(count=0)
-            //     current!!.children.put(char, tempNode)
-
-            //     if(char==word[-1]){
-            //         tempNode.count++}}
         }
     }
 
@@ -118,6 +107,24 @@ class WordCountTree {
         }
     }
 
+    fun exists(word: String): Boolean{
+        fun traverseForExists(word: String, current: Node?): Boolean{
+            var currentLetterExists: Node? = current!!.children.get(word[0])
+
+            if(currentLetterExists!=null){
+                if(word.length==1){
+                    return true}
+                else{
+                    return traverseForExists(word.drop(1), currentLetterExists)}
+            }
+            else{
+                return false
+            }
+        }
+
+        return traverseForExists(word, root)
+    }
+
     /**
      * Returns true if word is stored in this WordCountTree
      * with a count greater than 0, and false otherwise.
@@ -125,7 +132,27 @@ class WordCountTree {
      */
     fun contains(word: String): Boolean {
         // TODO: Part C
-        return false
+        fun inContains(word: String, current: Node): Boolean{
+            var currentLetterExists: Node? = current.children.get(word[0])
+            if(currentLetterExists!=null){
+                if(word.length==1){
+                    return currentLetterExists!!.count>0}
+
+                return inContains(word.drop(1), currentLetterExists)}
+            else{
+                return false
+            }
+        }
+
+        if(word.length==1){
+            if(root.children.get(word[0])!=null){
+                if(root.children.get(word[0])!!.count>0){return true}
+                else{return false}
+            }
+            return false
+        }
+
+        return inContains(word, root)
     }
 
     /**
@@ -134,7 +161,35 @@ class WordCountTree {
      * If prefix is not present, returns an empty MutableMap.
      */
     fun getAutocompletionMap(prefix: String): MutableMap<String, Int> {
-        // TODO: Part C
-        return mutableMapOf<String, Int>()
+        var wordList: MutableMap<String, Int> = mutableMapOf()
+
+        fun traversal(prefix: String, current: Node){
+            if(current.children.isEmpty()){
+                wordList.put(prefix, current.count)}
+            else{
+                for((kidChar, kidNode) in current.children){
+                    var fullishWord: String = prefix + kidChar // add kid[0] which is the char associated with the child
+                    traversal(fullishWord, kidNode)}
+                
+                if(current.count>0){
+                    var secondFullishWord: String = prefix
+                    wordList.put(secondFullishWord, current.count)}
+            }
+        }
+
+        if(exists(prefix)){
+            println("")
+            var nodeAtPrefix: Node? = root
+            var keepTrack: String = ""
+            for(letter in prefix){
+                nodeAtPrefix = nodeAtPrefix!!.children.get(letter)
+            }
+
+            if(nodeAtPrefix!=null){traversal(prefix, nodeAtPrefix)}
+            return wordList
+        }
+        else{
+            return wordList
+        }
     }
 }
