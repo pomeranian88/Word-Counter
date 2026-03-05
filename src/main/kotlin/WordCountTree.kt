@@ -1,9 +1,3 @@
-/**
- * WordCountTree class contains word counts within a provided series of strings.
- * Each node of the WordCountTree (WCT) contains a count. The children of a node
- * are all of the characters that could come after the node's character to
- * represent a word.
- */
 class WordCountTree {
     // Nobody else needs to see how we internally store nodes, so
     // we keep the data class private
@@ -107,24 +101,6 @@ class WordCountTree {
         }
     }
 
-    fun exists(word: String): Boolean{
-        fun traverseForExists(word: String, current: Node?): Boolean{
-            var currentLetterExists: Node? = current!!.children.get(word[0])
-
-            if(currentLetterExists!=null){
-                if(word.length==1){
-                    return true}
-                else{
-                    return traverseForExists(word.drop(1), currentLetterExists)}
-            }
-            else{
-                return false
-            }
-        }
-
-        return traverseForExists(word, root)
-    }
-
     /**
      * Returns true if word is stored in this WordCountTree
      * with a count greater than 0, and false otherwise.
@@ -163,7 +139,7 @@ class WordCountTree {
     fun getAutocompletionMap(prefix: String): MutableMap<String, Int> {
         var wordList: MutableMap<String, Int> = mutableMapOf()
 
-        fun traversal(prefix: String, current: Node){
+        fun traversal(prefix: String, current: Node){   //
             if(current.children.isEmpty()){
                 wordList.put(prefix, current.count)}
             else{
@@ -191,5 +167,26 @@ class WordCountTree {
         else{
             return wordList
         }
+    }
+
+    /**
+     * 
+     */
+    fun exists(word: String): Boolean{
+        fun traverseForExists(word: String, current: Node?): Boolean{
+            var currentLetterExists: Node? = current!!.children.get(word[0])
+
+            if(currentLetterExists!=null){
+                if(word.length==1){
+                    return true}
+                else{
+                    return traverseForExists(word.drop(1), currentLetterExists)}
+            }
+            else{
+                return false
+            }
+        }
+
+        return traverseForExists(word, root)
     }
 }
